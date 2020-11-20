@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DPX</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="js/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/media.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/png">
+</head>
+
+<body>
+    <header>
+        <div class="wrapper">
+            <div class="header-cnt">
+                <div class="hamburger">
+                    <div> </div>
+                    <div> </div>
+                    <div> </div>
+                </div>
+                <div class="block-mob">
+                    <div class="block-mob-up">
+                        <p class="block-mob-up-p"> <a href="where-fr.html"> Où DLX est-il utilisé? </a> </p>
+                        <p class="block-mob-up-p"> <a href="study-fr.html"> Formation </a> </p>
+                        <p class="block-mob-up-p"> <a href="cooperation-fr.html"> Coopération </a> </p>
+                        <p class="block-mob-up-p"> <a href="contacts-fr.html"> Contacts </a> </p>
+                    </div>
+                    <div class="block-mob-down">
+                        <div class="social">
+                            <a href="#"> <img src="img/Vecto125r.png"> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo">
+                    <a href="index-fr.html"> <img src="img/Group 58.png"> </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li> <a href="index-fr.html"> Accueil </a> </li>
+                        <li> <a href="where-fr.html"> Où utiliser DLX? </a> </li>
+                        <li> <a href="study-fr.html"> Formation </a> </li>
+                        <li> <a href="cooperation-fr.html"> Coopération </a> </li>
+                        <li> <a href="contacts-fr.html"> Contacts </a> </li>
+                    </ul>
+                </nav>
+                <div class="lang">
+                    <ul>
+                        <li class="submenu"> <a> FR <img src="img/Polygon2.png"> </a>
+                            <ul class="dropdown">
+                                <li> <a href="index-kg.html"> KG </a> </li>
+                                <li> <a href="index-de.html"> DE </a> </li>
+                                <li> <a href="index.html"> RU </a> </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="social">
+                    <a href="https://vk.com/dlxcom" target="_blank"> <img src="img/Vectorsaga.png"> </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="Feedback" id="Feedback">
+        <div class="wrapper">
+            <h3> Nous sommes prêts à envisager toutes les options de coopération avec vous. <br> Remplissez le formulaire ci-dessous afin que nous puissions vous contacter </h3>
+            <form action="mailer/smart.php" method="POST" class="forms">
+                <input type="text" name="name222" placeholder="Quel est votre nom?">
+                <input type="text" name="phone222" placeholder="Comment puis-je vous contacter?" requis>
+                <input type="text" name="text222" placeholder="Qu'est-ce qui vous intéresse?">
+                <input type="submit" name="form-btn" value="Submit">
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="wrapper">
+            <div class="footer-cnt">
+                <div class="footer-block">
+                    <div class="logo">
+                        <a href="#"> <img src="img/Group 58.png"> </a>
+                    </div>
+                </div>
+                <div class="footer-block">
+                    <p> <a href="#"> Accueil </a> </p>
+                    <p> <a href="#"> Pièce Diplex </a> </p>
+                    <p> <a href="#"> Feuille de route </a> </p>
+                    <p> <a href="#"> Portefeuille </a> </p>
+                    <p> <a href="#"> À propos de nous </a> </p>
+                </div>
+                <div class="footer-block footer-block-a">
+                    <a href="https://crex24.com/en/exchange/DLX-BTC" target="_blank"> <button> Acheter du DLX </button> </a>
+                    <a href="#Feedback" class="footer-block-a"> <button> Contactez-nous </button> </a>
+                    <div class="social">
+                        <a href="https://vk.com/dlxcom"> <img src="img/vk(4)2.png"> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="rights"> 2020 Diplex. Tous les droits sont réservés. République de Biélorussie. </p>
+    </footer>
+    <div class="thank">
+        <div class="thank-popup">
+            <div class="thank-text"> Merci pour les informations fournies. <br> Vous serez bientôt contacté! </div>
+            <div class="thank-close"> Fermer </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"> -->
+    </script>
+    <script>
+    $('.forms').submit(function(event) {
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "mailer/smart.php",
+            data: $(this).serialize()
+        }).done(function() {
+            $(this).find("input").val("");
+            $(".thank").show();
+            $(".forms").trigger("reset");
+        });
+        return false;
+    });
+    </script>
+    <script>
+    $(".thank-close").on("click", function() {
+        $(".thank").hide();
+
+    });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-migrate-3.3.0.min.js" integrity="sha256-wZ3vNXakH9k4P00fNGAlbN0PkpKSyhRa76IFy4V1PYE=" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="js/slick/slick.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>

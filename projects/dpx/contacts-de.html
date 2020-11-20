@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DPX</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="js/slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/media.css">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/png">
+</head>
+<body>
+	<header>
+		<div class="wrapper">
+			<div class="header-cnt">
+				<div class="hamburger">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div class="block-mob">
+					<div class="block-mob-up">
+						<p class="block-mob-up-p"><a href="where-de.html">Wo wird DLX verwendet?</a></p>
+						<p class="block-mob-up-p"><a href="study-de.html">Ausbildung</a></p>
+						<p class="block-mob-up-p"><a href="cooperation-de.html">Mitarbeit</a></p>
+						<p class="block-mob-up-p"><a href="contacts-de.html">Kontakte</a></p>
+					</div>
+					<div class="block-mob-down">
+						<div class="social">
+							<a href="#"><img src="img/Vecto125r.png"></a>
+						</div>
+					</div>
+				</div>
+				<div class="logo">
+					<a href="index-de.html"><img src="img/Group 58.png"></a>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="index-de.html">Hauptseite </a></li>
+						<li><a href="where-de.html">Wo wird DLX verwendet?</a></li>
+						<li><a href="study-de.html">Ausbildung</a></li>
+						<li><a href="cooperation-de.html">Mitarbeit</a></li>
+						<li><a href="contacts-de.html">Kontakte</a></li>
+					</ul> 
+				</nav>
+				<div class="lang">
+					<ul>
+						<li class="submenu"><a >DE <img src="img/Polygon2.png"></a>
+							<ul class="dropdown">
+								<li><a href="index-kg.html">KG</a></li>
+								<li><a href="index.html">RU</a></li>
+									<li><a href="index-fr.html">FR</a></li>
+								<!-- <li><a href="#">KZ</a></li> -->
+								<!-- <li><a href="#">EN</a></li> -->
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="social">
+					<a href="https://vk.com/dlxcom" target="_blank"><img src="img/Vectorsaga.png"></a>
+				</div>	
+			</div>
+		</div>		
+	</header>
+	<section class="Feedback" id="Feedback">
+		<div class="wrapper">
+			<h3>Wir können alle Optionen für eine Mitarbeit prüfen. <br>Füllen Sie dieses Formular, damit wir sich mit Ihr ins Vernehmen setzen können</h3>
+			<form action="mailer/smart.php"  method="POST" class="forms">
+				<input type="text" name="name222" placeholder="Wie heißen Sie?">
+				<input type="text" name="phone222" placeholder="Ihre Kontaktinformationen?" required>
+				<input type="text" name="text222" placeholder="Was steht zu Ihren Diensten? ">
+				<input type="submit" name="form-btn" value="Nachricht senden">
+			</form>
+		</div>
+	</section>
+	<footer>
+		<div class="wrapper">
+			<div class="footer-cnt">
+				<div class="footer-block">
+					<div class="logo">
+						<a href="#"><img src="img/Group 58.png"></a>
+					</div>
+				</div>
+				<div class="footer-block">
+					<p><a href="#">Hauptseite </a></p>
+					<p><a href="#">Diplex-Münze</a></p>
+					<p><a href="#">Roadmap</a></p>
+					<p><a href="#">Brieftasche </a></p>
+					<p><a href="#">Profil</a></p>
+				</div>
+				<!-- <div class="footer-block">
+					<p><a href="#">Скачать Windows</a></p>
+					<p><a href="#">Скачать  Linux</a></p>
+				</div> -->
+				<div class="footer-block footer-block-a">
+					<a href="https://crex24.com/ru/exchange/DLX-BTC" target="_blank"><button>DLX einkaufen</button></a>	
+					<a href="#Feedback" class="footer-block-a"><button>Uns erreichen</button></a>
+					<div class="social">
+						<a href="https://vk.com/dlxcom"><img src="img/vk(4)2.png"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<p class="rights">2020 Diplex. Alle Rechte sind vorbehalten. Republik Belarus.</p>
+	</footer>
+	<div class="thank">
+          <div class="thank-popup">
+            <div class="thank-text">Vielen Dank für die bereitgestellten Informationen. <br>Sie werden bald kontaktiert! </div>
+            <div  class="thank-close">Schließen</div>
+          </div>
+        </div>
+
+	<script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+	
+	<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"> -->
+
+	</script>
+	<script>
+	         $('.forms').submit(function (event) {
+	           event.preventDefault();
+	           $.ajax({
+	             type: "POST",
+	             url: "mailer/smart.php",
+	             data: $(this).serialize()
+	           }).done(function () {
+	             $(this).find("input").val("");
+	             $(".thank").show();
+	             $(".forms").trigger("reset");
+	           });
+	           return false;
+	         });
+	       </script>
+	       <script>
+	         $(".thank-close").on("click", function () {
+	           $(".thank").hide();
+	       
+	         });
+	       </script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous">
+	</script>
+	<script
+		  src="https://code.jquery.com/jquery-migrate-3.3.0.min.js"
+		  integrity="sha256-wZ3vNXakH9k4P00fNGAlbN0PkpKSyhRa76IFy4V1PYE="
+		  crossorigin="anonymous">
+	</script>
+	<script type="text/javascript" src="js/slick/slick.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

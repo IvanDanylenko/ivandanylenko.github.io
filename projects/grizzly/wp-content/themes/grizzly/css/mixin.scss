@@ -1,0 +1,122 @@
+@mixin btn($bc,$c,$bc_h,$c_h){
+  background-color: $bc;
+  color: $c;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 22px;
+  padding-right: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  border: none;
+  @include transition_04;
+  span {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.14px;
+  }
+  i {
+    font-size: 9px;
+  }
+  &:hover,
+  &:focus{
+    text-decoration: none;
+    background-color: $bc_h;
+    color: $c_h;
+  }
+}
+@mixin display_flex($jc,$ai,$ac,$fw,$fd){
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+  align-content: $ac;
+  flex-wrap: $fw;
+  flex-direction: $fd;
+}
+@mixin transform($transform){
+  -webkit-transform: rotate($transform);
+  -moz-transform: rotate($transform);
+  -ms-transform: rotate($transform);
+  -o-transform: rotate($transform);
+  transform: rotate($transform);
+}
+@mixin transform_scale($tc){
+  -moz-transform: scale($tc);
+  -webkit-transform: scale($tc);
+  -o-transform: scale($tc);
+  -ms-transform: scale($tc);
+  transform: scale($tc);
+}
+@mixin transition_04{
+  -webkit-transition: all 0.4s 0s ease-in-out;
+  -moz-transition: all 0.4s 0s ease-in-out;
+  -o-transition: all 0.4s 0s ease-in-out;
+  transition: all 0.4s 0s ease-in-out;
+}
+@mixin icon_cat_lists($src,$w,$h){
+  background-image: url($src);
+  width: $w;
+  min-width: $w;
+  max-width: $w;
+  height: $h;
+  min-height: $h;
+  max-height: $h;
+}
+@mixin product_btn($pt,$pb,$pl,$pr,$w,$maxw){
+  box-shadow: 0 5px 31px 1px rgba(42, 42, 42, 0.15);
+  background-color: #ffffff;
+  padding-top: $pt;
+  padding-bottom: $pb;
+  padding-left: $pl;
+  padding-right: $pr;
+  width: $w;
+  max-width: $maxw;
+  @include display_flex(flex-start, center, center, nowrap, row);
+  @include transition_04;
+  i{
+    margin-right: 13px;
+    display: block;
+  }
+  span{
+    color: #10646c;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.14px;
+  }
+  &:hover{
+    text-decoration: none;
+    box-shadow: 0 5px 31px 1px rgba(42, 42, 42, 0.55);
+  }
+}
+
+
+
+
+
+
+%date_img{
+  background-color: #10646c;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 15px;
+  padding-bottom: 14px;
+  position: absolute;
+  top: 12px;
+  left: 15px;
+}

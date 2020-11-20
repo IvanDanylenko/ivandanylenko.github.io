@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DPX</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="js/slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/media.css">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/png">
+</head>
+<body>
+	<header>
+		<div class="wrapper">
+			<div class="header-cnt">
+				<div class="hamburger">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div class="block-mob">
+					<div class="block-mob-up">
+						<!-- <p class="block-mob-up-p"><a href="#">Где использовать DLX?</a></p> -->
+						<p class="block-mob-up-p"><a href="study-kg.html">Билим алуу</a></p>
+						<p class="block-mob-up-p"><a href="cooperation-kg.html">Кызматташуу</a></p>
+						<p class="block-mob-up-p"><a href="contacts-kg.html">Контакты</a></p>
+					</div>
+					<div class="block-mob-down">
+						<div class="social">
+							<a href="#"><img src="img/Vecto125r.png"></a>
+						</div>
+					</div>
+				</div>
+				<div class="logo">
+					<a href="index.html"><img src="img/Group 58.png"></a>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="index-kg.html">Негизгиси</a></li>
+						<!-- <li><a href="#"DLX  кайда колдонуу керек?</a></li> -->
+						<li><a href="study-kg.html">Билим алуу</a></li>
+						<li><a href="cooperation-kg.html">Кызматташуу</a></li>
+						<li><a href="contacts-kg.html">Контакты</a></li>
+					</ul> 
+				</nav>
+				<div class="lang">
+					<ul>
+						<li class="submenu"><a>KG<img src="img/Polygon2.png"></a>
+							<ul class="dropdown">
+								<li><a href="index.html">RU</a></li>
+								<li><a href="index-de.html">DE</a></li>
+									<li><a href="index-fr.html">FR</a></li>
+								<!-- <li><a href="#">KZ</a></li> -->
+								<!-- <li><a href="#">EN</a></li> -->
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="social">
+					<a href="https://vk.com/dlxcom" target="_blank"><img src="img/Vectorsaga.png"></a>
+				</div>	
+			</div>
+		</div>		
+	</header>
+	<section class="Feedback" id="Feedback">
+		<div class="wrapper">
+			<h3>Биз менен байланышыңыз Сиз менен кызматташуунун ар кандай варианттарын карап чыгууга даярбыз.<br> Төмөнкү форманы толтуруңуз, биз сиз менен байланышабыз</h3>
+			<form action="mailer/smart.php"  method="POST" class="forms">
+				<input type="text" name="name222" placeholder="Сиздин атыңыз ким?">
+				<input type="text" name="phone222" placeholder="Сиз менен кантип байланышса болот?" required>
+				<input type="text" name="text222" placeholder="Сизди эмне кызыктырат?">
+				<input type="submit" name="form-btn" value="баш ийүү">
+			</form>
+		</div>
+	</section>
+	<footer>
+		<div class="wrapper">
+			<div class="footer-cnt">
+				<div class="footer-block">
+					<div class="logo">
+						<a href="#"><img src="img/Group 58.png"></a>
+					</div>
+				</div>
+				<div class="footer-block">
+					<p><a href="#index-kg.html">үй</a></p>
+					<p><a href="#">Diplex Coin</a></p>
+					<p><a href="#">Жол картасы</a></p>
+					<p><a href="#">акча капчыгы</a></p>
+					<p><a href="#">Биз жөнүндө</a></p>
+				</div>
+				<!-- <div class="footer-block">
+					<p><a href="#">Windows жүктөө</a></p>
+					<p><a href="#">Linux жүктөө</a></p>
+				</div> -->
+				<div class="footer-block footer-block-a">
+					<a href="https://crex24.com/ru/exchange/DLX-BTC" target="_blank"><button>DLX сатып алыңыз</button></a>	
+					<a href="#Feedback" class="footer-block-a"><button>Биз менен байланышуу</button></a>
+					<div class="social">
+						<a href="https://vk.com/dlxcom"><img src="img/vk(4)2.png"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<p class="rights">Diplex 2020. Бардык укук  корголгон. Беларусь республикасы.</p>
+	</footer>
+	<div class="thank">
+          <div class="thank-popup">
+            <div class="thank-text">Берилген маалымат үчүн рахмат. <br> Жакында сиз менен байланышат! </div>
+            <div  class="thank-close">жакын</div>
+          </div>
+        </div>
+        <script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+	
+	<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"> -->
+
+	</script>
+	<script>
+	         $('.forms').submit(function (event) {
+	           event.preventDefault();
+	           $.ajax({
+	             type: "POST",
+	             url: "mailer/smart.php",
+	             data: $(this).serialize()
+	           }).done(function () {
+	             $(this).find("input").val("");
+	             $(".thank").show();
+	             $(".forms").trigger("reset");
+	           });
+	           return false;
+	         });
+	       </script>
+	       <script>
+	         $(".thank-close").on("click", function () {
+	           $(".thank").hide();
+	       
+	         });
+	       </script>
+	<script>
+			$(document).ready(function() {
+			 
+			 
+			   $("a.topLink").click(function() {
+			      $("html, body").animate({
+			         scrollTop: $($(this).attr("href")).offset().top + "px"
+			      }, {
+			         duration: 500,
+			         easing: "swing"
+			      });
+			      return false;
+			   });
+			 
+			 
+			});
+		</script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous">
+	</script>
+	<script
+		  src="https://code.jquery.com/jquery-migrate-3.3.0.min.js"
+		  integrity="sha256-wZ3vNXakH9k4P00fNGAlbN0PkpKSyhRa76IFy4V1PYE="
+		  crossorigin="anonymous">
+	</script>
+	<script type="text/javascript" src="js/slick/slick.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
