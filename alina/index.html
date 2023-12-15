@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>З Новим Роком</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat:700|Pacifico"
+    />
+    <style>
+      *,
+      *:after,
+      *:before {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        -webkit-transition: all 100ms ease-in;
+        transition: all 100ms ease-in;
+      }
+      html {
+        background: #222048;
+        color: #fff;
+      }
+
+      .first_screen {
+        height: 100vh;
+      }
+
+      .second_screen {
+        padding-top: 40px;
+      }
+
+      .title {
+        width: 100%;
+        font-family: 'Pacifico', cursive;
+        font-size: 100px;
+        font-weight: 700;
+        color: #f48fb1;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        opacity: 0;
+        animation: title_animation 2s ease-in-out 7s forwards;
+      }
+      .year {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        padding: 200px 100px 0px 0px;
+      }
+      .year > span {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 175px;
+        font-weight: 700;
+        color: #7a8fe8;
+      }
+      span.year__previous {
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        margin-right: -220px;
+        animation: prev_year_animation 5s ease-in-out 5s forwards;
+      }
+      span.year__next {
+        position: absolute;
+        right: 0%;
+        margin-right: -225px;
+        animation: next_year_animation 6s ease-in-out forwards;
+      }
+      span.year__next:before {
+        content: '';
+        width: 0px;
+        height: 6px;
+        display: block;
+        border-radius: 3px;
+        background: #7a8fe8;
+        transform: rotate(0deg);
+        transform-origin: left top;
+        position: absolute;
+        top: 55px;
+        left: 10px;
+        z-index: -1;
+        animation: baloon_animation 1s ease-in-out 4s;
+      }
+      .year__baloon {
+        width: 100px;
+        height: 100px;
+        display: block;
+        background: #e8d57a;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        margin-top: -165px;
+        right: 0%;
+        margin-right: -200px;
+        animation: baloon_animation_2 10s ease-in-out forwards;
+      }
+      .year__baloon:before {
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 10px 20px 10px;
+        border-color: transparent transparent #b19b32 transparent;
+        position: absolute;
+        left: 50%;
+        margin-left: -10px;
+        bottom: -10px;
+        z-index: -1;
+      }
+      .year__baloon:after {
+        content: '';
+        width: 4px;
+        height: 100px;
+        display: block;
+        background: #fff;
+        border-radius: 0px 0px 3px 3px;
+        position: absolute;
+        left: 50%;
+        margin-left: -2px;
+        bottom: -110px;
+      }
+      .salutes {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+      }
+      .salutes > div {
+        border: 2px solid #fff;
+        position: absolute;
+        opacity: 0;
+        animation: salutes_animation 1.5s ease-in-out 8s forwards;
+      }
+      .salutes > div.f1 {
+        left: 20%;
+        top: 40%;
+      }
+      .salutes > div.f2 {
+        left: 15%;
+        top: 70%;
+      }
+      .salutes > div.f3 {
+        right: 20%;
+        top: 40%;
+      }
+      .salutes > div.f4 {
+        right: 15%;
+        top: 70%;
+      }
+      .salutes > div span {
+        width: 6px;
+        height: 6px;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        animation: salutes_animation_2 0.5s ease-in-out 9s forwards;
+      }
+      .salutes > div span:nth-child(1) {
+        transform: rotate(0deg);
+      }
+      .salutes > div span:nth-child(2) {
+        transform: rotate(120deg);
+      }
+      .salutes > div span:nth-child(3) {
+        transform: rotate(240deg);
+      }
+      .salutes > div span:before {
+        content: '';
+        width: 2px;
+        height: 50px;
+        display: block;
+        background: #f5cc06;
+        position: absolute;
+        top: -60px;
+        left: 2px;
+      }
+      .salutes > div span:after {
+        content: '';
+        width: 2px;
+        height: 50px;
+        display: block;
+        background: #f5cc06;
+        position: absolute;
+        bottom: -60px;
+        left: 2px;
+      }
+      .salutes > div span i:before {
+        content: '';
+        width: 3px;
+        height: 3px;
+        display: block;
+        border-radius: 50%;
+        background: #fff;
+        position: absolute;
+        top: -15px;
+        left: 10px;
+      }
+      .salutes > div span i:after {
+        content: '';
+        width: 3px;
+        height: 3px;
+        display: block;
+        border-radius: 50%;
+        background: #fff;
+        position: absolute;
+        top: -15px;
+        right: 10px;
+      }
+      a.author {
+        font-size: 12px;
+        text-decoration: none;
+        color: #f47c7c;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+      }
+
+      @keyframes next_year_animation {
+        0% {
+          right: 0%;
+        }
+        66.6666% {
+          right: 50%;
+          margin-right: -330px;
+        }
+        90% {
+          right: 50%;
+          margin-right: -330px;
+        }
+        100% {
+          right: 50%;
+        }
+      }
+      @keyframes baloon_animation_2 {
+        0% {
+          right: 0%;
+        }
+        40% {
+          right: 50%;
+          margin-right: -300px;
+        }
+        50% {
+          right: 50%;
+          margin-right: -200px;
+          top: 50%;
+        }
+        100% {
+          top: -100%;
+          right: 50%;
+        }
+      }
+      @keyframes baloon_animation {
+        0% {
+          transform: rotate(-30deg);
+          width: 40px;
+        }
+        100% {
+          transform: rotate(-150deg);
+          width: 70px;
+        }
+      }
+      @keyframes prev_year_animation {
+        0% {
+          top: 50%;
+        }
+        100% {
+          top: -100%;
+        }
+      }
+      @keyframes title_animation {
+        0% {
+          margin-top: 0px;
+          opacity: 0;
+        }
+        100% {
+          margin-top: -200px;
+          opacity: 1;
+        }
+      }
+      @keyframes salutes_animation {
+        0% {
+          margin-top: 100%;
+          opacity: 0;
+          width: 2px;
+          height: 30px;
+          display: block;
+          border-radius: 50%;
+        }
+        75% {
+          margin-top: 0%;
+          opacity: 1;
+          width: 2px;
+          height: 30px;
+          display: block;
+          border-radius: 50%;
+        }
+        80% {
+          margin-top: 0px;
+          margin-left: 0px;
+          opacity: 1;
+          width: 10px;
+          height: 10px;
+          display: block;
+          border-radius: 50%;
+          transform: scale(0.2);
+        }
+        100% {
+          opacity: 1;
+          width: 10px;
+          height: 10px;
+          display: block;
+          border-radius: 50%;
+          transform: scale(1);
+        }
+      }
+      @keyframes salutes_animation_2 {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .scroll_down_arrow {
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        transition: opacity 1s ease;
+        opacity: 1;
+        user-select: none;
+      }
+
+      .scroll_down_arrow.hidden {
+        opacity: 0;
+      }
+
+      .scroll_down_arrow span {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-bottom: 2px solid white;
+        border-right: 2px solid white;
+        transform: rotate(45deg);
+        margin: -10px;
+        animation: animate 2s infinite;
+      }
+
+      .scroll_down_arrow span:nth-child(2) {
+        animation-delay: -0.2s;
+      }
+
+      .scroll_down_arrow span:nth-child(3) {
+        animation-delay: -0.4s;
+      }
+
+      @keyframes animate {
+        0% {
+          opacity: 0;
+          transform: rotate(45deg) translate(-20px, -20px);
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: rotate(45deg) translate(20px, 20px);
+        }
+      }
+
+      /**
+ * My Styles
+*/
+      .container {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 600px;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 50px;
+      }
+
+      .alina_photo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .alina_photo__img {
+        width: 300px;
+        border-radius: 12px;
+      }
+
+      .good_day {
+        margin-top: 25px;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .good_day__img {
+        min-width: 300px;
+        width: 100%;
+        max-width: 350px;
+      }
+
+      .pacifico {
+        font-family: 'Pacifico', cursive;
+        font-size: 24px;
+      }
+
+      .greeting {
+        margin-top: 20px;
+      }
+
+      .third_screen {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+      }
+
+      .third_screen_content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      @media (max-width: 600px) {
+        .year > span {
+          font-size: 150px;
+        }
+        span.year__previous {
+          margin-right: -185px;
+          top: 51.5%;
+        }
+        span.year__next {
+          margin-right: -192px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="first_screen">
+      <div class="title">З Новим Роком!</div>
+      <div class="year">
+        <span>202</span>
+        <span class="year__previous">3</span>
+        <span class="year__next">4</span>
+        <div class="year__baloon"></div>
+      </div>
+      <div class="salutes">
+        <div class="f1">
+          <span><i></i></span>
+          <span><i></i></span>
+          <span><i></i></span>
+        </div>
+        <div class="f2">
+          <span><i></i></span>
+          <span><i></i></span>
+          <span><i></i></span>
+        </div>
+        <div class="f3">
+          <span><i></i></span>
+          <span><i></i></span>
+          <span><i></i></span>
+        </div>
+        <div class="f4">
+          <span><i></i></span>
+          <span><i></i></span>
+          <span><i></i></span>
+        </div>
+      </div>
+      <div class="scroll_down_arrow hidden" onclick="onScrollDownClick()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <script>
+        function onScrollDownClick() {
+          const secondScreen = document.querySelector('.second_screen');
+          secondScreen.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        setTimeout(() => {
+          const scrollDownArrow = document.querySelector('.scroll_down_arrow');
+          scrollDownArrow.classList.remove('hidden');
+        }, 10000);
+        window.addEventListener('scroll', (e) => {
+          const scrollDownArrow = document.querySelector('.scroll_down_arrow');
+          const top =
+            scrollDownArrow &&
+            scrollDownArrow.getBoundingClientRect &&
+            scrollDownArrow.getBoundingClientRect().top;
+          if (typeof top !== 'number') {
+            return;
+          }
+          const bottom = window.innerHeight - top;
+          if (bottom > 150) {
+            scrollDownArrow.classList.add('hidden');
+          } else {
+            scrollDownArrow.classList.remove('hidden');
+          }
+        });
+      </script>
+    </div>
+    <div class="second_screen">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="alina_photo">
+              <img class="alina_photo__img" src="Alina.jpg" alt="Alina" />
+            </div>
+            <div class="greeting pacifico">
+              <p>Вітаю з Новим Роком!</p>
+              <p>Хай в Новому Році збудуться твої мрії.</p>
+              <p>
+                Бажаю успіхів, натхнення у професійному та особистому зростанні,
+                і щоб ніякі фактори не впливали.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="third_screen">
+      <div class="container">
+        <div class="third_screen_content">
+          <p class="pacifico">Пісня&nbsp;про&nbsp;Новий&nbsp;Рік</p>
+          <audio id="new_year_song" src="flit-novij_rik.mp3" controls></audio>
+        </div>
+      </div>
+    </div>
+    <div class="forth_screen">
+      <div class="container">
+        <div class="good_day">
+          <img
+            class="good_day__img"
+            src="good_day.jpg"
+            alt="New Year Greeting"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
